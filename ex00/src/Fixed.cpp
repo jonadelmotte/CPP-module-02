@@ -8,8 +8,8 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const Fixed &src)
 {
-    *this = src;
     std::cout << "copy constructor called\n";
+    *this = src;
 }
 
 Fixed::~Fixed(void)
