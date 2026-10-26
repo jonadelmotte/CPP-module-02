@@ -3,23 +3,23 @@
 Fixed::Fixed(void)
 {
     this->_value = 0;
-    std::cout << "default constructor called\n";
+    std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-    std::cout << "copy constructor called\n";
+    std::cout << "Copy constructor called\n";
     *this = src;
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout << "destructor called\n";
+    std::cout << "Destructor called\n";
 }
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
-    std::cout << "copy assignment operator overload called\n";
+    std::cout << "Copy assignment operator overload called\n";
     if (this != &src)
         this->_value = src.getRawBits();
     return (*this);
