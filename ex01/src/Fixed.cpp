@@ -15,13 +15,13 @@ Fixed::Fixed(const Fixed &src)
 Fixed::Fixed(const int integer)
 {
     std::cout << "Int constructor called\n";
-    this->_value = integer >> this->_fracts_bits; 
+    this->_value = integer << this->_fracts_bits; 
 }
 
 Fixed::Fixed(const float floating)
 {
     std::cout << "Float constructor called\n";
-    this->_value = roundf(floating / (float)(1 << this->_fracts_bits));
+    this->_value = roundf(floating * (float)(1 << this->_fracts_bits));
 }
 
 Fixed::~Fixed(void)
@@ -33,11 +33,11 @@ Fixed &Fixed::operator=(const Fixed &src)
 {
     std::cout << "Copy assignment operator overload called\n";
     if (this != &src)
-        this->_value = src.getRawBits();
+        this->_value = src._value;
     return (*this);
 }
 
-int Fixed::getRawBits(void)const
+int Fixed::getRawBits(void) const
 {
     return (this->_value);
 }
@@ -52,7 +52,7 @@ int Fixed::toInt(void) const
     return(this->_value >> this->_fracts_bits);
 }
 
-int Fixed::toFloat(void) const
+float Fixed::toFloat(void) const
 {
     return ((float)this->_value / (float)(1 << this->_fracts_bits));
 }

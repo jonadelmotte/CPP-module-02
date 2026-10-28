@@ -23,7 +23,7 @@ class Fixed
         int getRawBits(void)const;
         void setRawBits(int const raw);
         int toInt(void)const;
-        int toFloat(void)const;
+        float toFloat(void)const;
 } ;
 
 std::ostream &operator<<(std::ostream &os, const Fixed &Fixed);
