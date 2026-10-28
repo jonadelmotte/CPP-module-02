@@ -127,9 +127,9 @@ float Fixed::operator-(const Fixed &src) const
     return this->toFloat() - src.toFloat();
 }
 
-float Fixed::operator+(const Fixed &src) const
+Fixed Fixed::operator+(const Fixed &src) const
 {
-    return this->toFloat() + src.toFloat();
+    return Fixed( this->toFloat() + src.toFloat() );
 }
 
 Fixed &Fixed::min(Fixed &one, Fixed &two)

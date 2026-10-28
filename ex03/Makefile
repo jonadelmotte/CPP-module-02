@@ -1,6 +1,6 @@
 NAME = fixed
 
-FILES = main Fixed \
+FILES = main Fixed Point bsp\
 
 SRC_DIR = src/
 OBJ_DIR = obj/

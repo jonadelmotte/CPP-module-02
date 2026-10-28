@@ -1,6 +1,6 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
-//verifie que le deuxieme c pas un zero faut pas diviser par zero sinon le pc il explose connard hihihi merci bien au depart aller chez le docteur
+
 # include <iostream>
 # include <string>
 # include <cmath>
@@ -18,7 +18,7 @@ class Fixed
         Fixed(const float floating);
         ~Fixed(void);
 
-        float operator+(const Fixed &src) const;
+        Fixed operator+(const Fixed &src) const;
         float operator-(const Fixed &src) const;
         float operator*(const Fixed &src) const;
         float operator/(const Fixed &src) const;
