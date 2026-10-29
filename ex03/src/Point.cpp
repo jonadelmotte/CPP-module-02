@@ -107,10 +107,12 @@ Point   Triangle::get_c() const
 Fixed Triangle::get_area() const
 {
     Fixed a = _a.get_x() * (_b.get_y() - _c.get_y());
-    Fixed b = _b.get_x() * (_c.get_y() - _b.get_y());
+    Fixed b = _b.get_x() * (_c.get_y() - _a.get_y());
     Fixed c = _c.get_x() * (_a.get_y() - _b.get_y());
     Fixed area;
 
     area = (a + b + c) / 2;
+    if(area < 0.0001f)
+        area = area * (-1);
     return (area);
 }

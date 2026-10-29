@@ -51,4 +51,6 @@ class Triangle
         Fixed get_area() const;
 } ;
 
+bool    bsp(const Triangle &triangle, const Point &point);
+
 #endif
