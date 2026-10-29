@@ -3,7 +3,7 @@
 int main( void ) 
 {
     Triangle triangle(Point(1, 1), Point(1, 10), Point(10, 1));
-    Point   d(100, 100);
+    Point   d(1, 1);
 
 
     std::cout << "a = " << triangle.get_a().get_x() << " " << triangle.get_a().get_y() << std::endl;
