@@ -1,8 +1,7 @@
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : _value(0)
 {
-    this->_value = 0;
     // std::cout << "Default constructor called\n";
 }
 
@@ -12,16 +11,14 @@ Fixed::Fixed(const Fixed &src)
     *this = src;
 }
 
-Fixed::Fixed(const int integer)
+Fixed::Fixed(const int integer) : _value(integer << this->_fracts_bits) 
 {
     // std::cout << "Int constructor called\n";
-    this->_value = integer << this->_fracts_bits; 
 }
 
-Fixed::Fixed(const float floating)
+Fixed::Fixed(const float floating) : _value(roundf(floating * (float)(1 << this->_fracts_bits)))
 {
     // std::cout << "Float constructor called\n";
-    this->_value = roundf(floating * (float)(1 << this->_fracts_bits));
 }
 
 Fixed::~Fixed(void)
@@ -141,7 +138,7 @@ Fixed &Fixed::min(Fixed &one, Fixed &two)
 
 Fixed const &Fixed::min(const Fixed &one, const Fixed &two)
 {
-    if (one > two)
+    if (one < two)
         return one;
     return two;
 }
