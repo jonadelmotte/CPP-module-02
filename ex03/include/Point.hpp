@@ -22,6 +22,7 @@ class Point
 
     public :
         Point();
+        Point(const Point &Point);
         Point(const int &x, const int &y);
         ~Point();
 
@@ -52,8 +53,11 @@ class Triangle
     
     public :
         Triangle();
+        Triangle(const Triangle &Triangle);
         Triangle(const Point &a, const Point &b, const Point &c);
         ~Triangle();
+
+        Triangle &operator=(const Triangle &src);
 
         void set_a(const Point &a);
         void set_b(const Point &b);
@@ -65,6 +69,7 @@ class Triangle
         Point get_c() const;
 
         Fixed get_area() const;
+
 } ;
 
 bool    bsp(const Triangle &triangle, const Point &point);

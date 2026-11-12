@@ -13,6 +13,11 @@ Point::Point(void) : _x(0), _y(0)
 
 }
 
+Point::Point(const Point &Point) : _x(Point.get_x()), _y(Point.get_y())
+{
+    
+}
+
 Point::Point(const int &x, const int &y) : _x(x), _y(y)
 {
 
@@ -73,6 +78,11 @@ Triangle::Triangle() : _a(0, 0), _b(0, 0), _c(0, 0)
 
 }
 
+Triangle::Triangle(const Triangle &Triangle) : _a(Triangle.get_a()), _b(Triangle.get_b()), _c(Triangle.get_c())
+{
+
+}
+
 Triangle::Triangle(const Point &a, const Point &b, const Point &c) : _a(a), _b(b), _c(c)
 {
 }
@@ -117,6 +127,18 @@ Point   Triangle::get_b() const
 Point   Triangle::get_c() const
 {
     return _c;
+}
+
+Triangle    &Triangle::operator=(const Triangle &Triangle)
+{
+    if (this != &Triangle)
+    {
+        set_a(Triangle.get_a());
+        set_b(Triangle.get_b());
+        set_c(Triangle.get_c());
+    }
+    return (*this);
+
 }
 
 Fixed Triangle::get_area() const
