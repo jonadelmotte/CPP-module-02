@@ -1,8 +1,7 @@
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : _value(0)
 {
-    this->_value = 0;
     std::cout << "Default constructor called\n";
 }
 
@@ -12,16 +11,14 @@ Fixed::Fixed(const Fixed &src)
     *this = src;
 }
 
-Fixed::Fixed(const int integer)
+Fixed::Fixed(const int integer) : _value(integer << _fracts_bits)
 {
     std::cout << "Int constructor called\n";
-    this->_value = integer << this->_fracts_bits; 
 }
 
-Fixed::Fixed(const float floating)
+Fixed::Fixed(const float floating) : _value(roundf(floating * (float)(1 << _fracts_bits)))
 {
     std::cout << "Float constructor called\n";
-    this->_value = roundf(floating * (float)(1 << this->_fracts_bits));
 }
 
 Fixed::~Fixed(void)
@@ -31,7 +28,7 @@ Fixed::~Fixed(void)
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
-    std::cout << "Copy assignment operator overload called\n";
+    std::cout << "Copy assignment operator called\n";
     if (this != &src)
         this->_value = src._value;
     return (*this);
