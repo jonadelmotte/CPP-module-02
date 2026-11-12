@@ -8,15 +8,14 @@
 /*                                                        */
 /**********************************************************/
 
-Point::Point(void)
+Point::Point(void) : _x(0), _y(0)
 {
-    set_x(0);
-    set_y(0);
+
 }
 
-Point::Point(const int &x, const int &y)
+Point::Point(const int &x, const int &y) : _x(x), _y(y)
 {
-    set_values(x, y);
+
 }
 
 Point::~Point(void)
@@ -69,14 +68,13 @@ Point   &Point::operator=(const Point &src)
 /*                                                        */
 /**********************************************************/
 
-Triangle::Triangle()
+Triangle::Triangle() : _a(0, 0), _b(0, 0), _c(0, 0)
 {
 
 }
 
-Triangle::Triangle(const Point &a, const Point &b, const Point &c)
+Triangle::Triangle(const Point &a, const Point &b, const Point &c) : _a(a), _b(b), _c(c)
 {
-    set_values(a, b, c);
 }
 
 Triangle::~Triangle()
